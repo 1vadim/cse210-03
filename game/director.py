@@ -7,5 +7,3 @@
         start_game =
 Author: Vadim
 """
-
-

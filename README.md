@@ -41,7 +41,7 @@ The program must also meet the following requirements.
 
     * Python 3.8.0
 
-### **Aurthors**
+### **Authors**
 
 Samuel Beltran (samuelbeltran@byui.edu)
 Vadym Chemariev (che21025@byui.edu)
