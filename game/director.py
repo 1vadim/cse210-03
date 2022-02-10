@@ -8,9 +8,6 @@ from .secret_word import Secret_word
         start_game =
 Author: Vadym Chemariev
 """
-
-
-
 class Director:
     """A person who directs the game. 
 
@@ -63,9 +60,6 @@ class Director:
 
         #Following line was just to see if works:
         #print(f"Word: {secret_word_for_game} -- Length: {word_length}")
-
-
-        
 
     def _get_inputs(self):
         """The player guesses the letter.
