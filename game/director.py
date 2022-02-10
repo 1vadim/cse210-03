@@ -57,7 +57,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._parachute.check_input_letter(letterinput,secretWord)
+        self._parachute.check_input_letter(self,letter,secretWord)
 
     def _do_outputs(self):
         """Provides a graphical output and a hint for the player to use.
