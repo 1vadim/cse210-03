@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 from .secret_word import Secret_word
-=======
-from game.player_parachute import Player_parachute
->>>>>>> ae4fd3f8112c78a72daa9de44e01d0ccda0fdd37
 """
     this class is going to control the sequence of the game
 
@@ -23,7 +19,7 @@ class Director:
     Attributes:
         word (Word): A secret word.
         is_playing (boolean): Whether or not to keep playing.
-        parachute (Parachute): Guessed or not a letter in a word.
+        parachute (Parachute): Gussed or not a letter in a word.
         terminal_service: For getting and displaying information on the terminal.
     """
 
@@ -39,13 +35,8 @@ class Director:
         self.length = 0
         self.secret_word_for_game = ""
         self._is_playing = True
-<<<<<<< HEAD
         self._parachute = ""
         self._terminal_service = ""
-=======
-        self._parachute = Player_parachute()
-        self._terminal_service = TerminalService()
->>>>>>> ae4fd3f8112c78a72daa9de44e01d0ccda0fdd37
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -89,7 +80,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._parachute.check_input_letter(letterinput,secretWord)
 
     def _do_outputs(self):
         """Provides a graphical output and a hint for the player to use.
