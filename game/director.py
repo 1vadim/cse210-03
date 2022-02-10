@@ -1,4 +1,4 @@
-from game.player_parachute import Player_parachute
+from .secret_word import Secret_word
 """
     this class is going to control the sequence of the game
 
@@ -8,8 +8,6 @@ from game.player_parachute import Player_parachute
         start_game =
 Author: Vadym Chemariev
 """
-
-
 class Director:
     """A person who directs the game. 
 
@@ -18,7 +16,7 @@ class Director:
     Attributes:
         word (Word): A secret word.
         is_playing (boolean): Whether or not to keep playing.
-        parachute (Parachute): Guessed or not a letter in a word.
+        parachute (Parachute): Gussed or not a letter in a word.
         terminal_service: For getting and displaying information on the terminal.
     """
 
@@ -28,10 +26,14 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._word = Word()
+
+        self._word = Secret_word()
+        self.random_word = ""
+        self.length = 0
+        self.secret_word_for_game = ""
         self._is_playing = True
-        self._parachute = Player_parachute()
-        self._terminal_service = TerminalService()
+        self._parachute = ""
+        self._terminal_service = ""
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -43,6 +45,18 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
+
+
+    def rand_word (self):
+        """Will store the randome word"""
+        random_word = self._word
+        secret_word_for_game = random_word.secret_word()
+        word_length = random_word._hidden_word()
+        
+        return word_length
+
+        #Following line was just to see if works:
+        #print(f"Word: {secret_word_for_game} -- Length: {word_length}")
 
     def _get_inputs(self):
         """The player guesses the letter.
