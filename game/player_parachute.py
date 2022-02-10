@@ -43,8 +43,8 @@ class Player_parachute:
     #This cuts a line on the player's parachute.
     def __update_players_parachute(self,guessed):
         if not guessed:
-            if self._parachute_graphic[0] == "  0":
-                self._parachute_graphic[0] = "  x"
+            if self._parachute_graphic[0] == "   0":
+                self._parachute_graphic[0] = "   x"
                 self._game_over = True
             else:
                 del self._parachute_graphic[0]
