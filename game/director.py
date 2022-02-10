@@ -1,3 +1,4 @@
+from .secret_word import Secret_word
 """
     this class is going to control the sequence of the game
 
@@ -7,6 +8,7 @@
         start_game =
 Author: Vadym Chemariev
 """
+
 
 
 class Director:
@@ -27,10 +29,14 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._word = Word()
+
+        self._word = Secret_word()
+        self.random_word = ""
+        self.length = 0
+        self.secret_word_for_game = ""
         self._is_playing = True
-        self._parachute = Parachute()
-        self._terminal_service = TerminalService()
+        self._parachute = ""
+        self._terminal_service = ""
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -38,10 +44,28 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        
+    
+
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
+
+
+    def rand_word (self):
+        """Will store the randome word"""
+        random_word = self._word
+        secret_word_for_game = random_word.secret_word()
+        word_length = random_word._hidden_word()
+        
+        return word_length
+
+        #Following line was just to see if works:
+        #print(f"Word: {secret_word_for_game} -- Length: {word_length}")
+
+
+        
 
     def _get_inputs(self):
         """The player guesses the letter.
