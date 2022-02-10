@@ -11,7 +11,8 @@ class Player_parachute:
     
     def __init__(self):
         self._game_over = False
-        self._parachute_graphic = self.__set_parachute_graphic()
+        self._parachute_graphic = self.__get_parachute_graphic()
+        #self._game_win = False
 
     #This returns from the _game_over  attribute its value
     def get_game_over_value(self):
@@ -22,23 +23,25 @@ class Player_parachute:
         return self._parachute_graphic
 
     #This returns the parachute graphic        
-    def __set_parachute_graphic(self):
-        return [" ___ ","/___\\","\   /"," \ /","  0"," /|\\"," / \\"] 
+    def __get_parachute_graphic(self):
+        return ["  ___ "," /___\\"," \   /","  \ /","   0","  /|\\","  / \\","\n","^^^^^^^^^^^","\n"] 
 
     #This checks if the player guesses a letter by a letter input
     def check_input_letter(self,letter,secretWord):
         guessed = False
-        self.__set_parachute_graphic()
-        for index in range(len(secretWord._secret_word)):
-            if secretWord._secret_word[index] == letter:
+        self.__get_parachute_graphic()
+        wordStr = secretWord._word
+        for index in range(len(wordStr)):
+            if wordStr[index] == letter:
                 self.__set_letter_in_list(index,letter,secretWord)
                 guessed = True
 
         self.__update_players_parachute(guessed)    
     #This stores a letter in a list
     def __set_letter_in_list(self,index,letter,secretWord):
-        if secretWord._hidden_word[index] == "_":
-            secretWord._hidden_word[index] = letter
+        hiddenWord = secretWord._empty_word
+        if hiddenWord[index] == "_":
+            hiddenWord[index] = letter
     
     #This cuts a line on the player's parachute.
     def __update_players_parachute(self,guessed):
@@ -48,5 +51,13 @@ class Player_parachute:
                 self._game_over = True
             else:
                 del self._parachute_graphic[0]
+    #This checks if the list of "_" is full of letters
+    def check_empty_word_is_full(self,secretWord):
+        count = 0
+        for i in secretWord:
+            if i != "_":
+                count += 1
+        if  len(secretWord) == count:
+            return True
 
 

@@ -1,17 +1,9 @@
 import random
 """
 This class is risponsible for choosing randomly a secret word
-    1- you need to create a cunstructor 
-    2- you need to create the attributes:
-    3-you need to create the mothods
 
 Author: Yami
 """
-
-#from random_word import RandomWords
-#r = RandomWords()
-
-
 class Secret_word:
     """This class is risponsible OF choosing a random secret word for the game
 
@@ -26,15 +18,13 @@ class Secret_word:
     def __init__(self):
         self._word = ""
         self._word_list = []
-        word_characters_list = []
+        self.word_characters_list = []
+        self._empty_word = []
 
-
+    #this generates a random word from the list
     def secret_word(self):  
 
         #return a single random word in CAPS
-
-        #self._word = r.get_random_word() 
-        #self._word_list = list(self._word)
 
         self._word_list = ["apple", "ability", "agency", "argue", "attack", "biscuit", "baby", "behavior", "blue", "budget",
          "camel", "campaign", "choice", "cup", "crime", "dinosaur", "design", "draw", "difference", "despite", "elegance",
@@ -47,18 +37,17 @@ class Secret_word:
          "speed", "smartphone", "single", "silver", "tangible", "tasty", "thankful", "thirsty", "taco", "uniform", "urban", "unicorn"]
         
         self._word = random.choice(self._word_list)
+        self._hidden_word()
 
-        return self._word
-    
-
+    #this generates a list of "_"
     def _hidden_word(self):
 
-        word_characters_list = list(self._word)
-
-        for each_character in word_characters_list:
-            each_character = "_ " * len(word_characters_list)
-
-            return each_character
+        self.word_characters_list = list(self._word)
+        for each_character in range(len(self.word_characters_list)):
+            each_character = "_" * len(self.word_characters_list) 
+            self._empty_word = list(each_character) 
+        
+        return self._empty_word
         
 
             
