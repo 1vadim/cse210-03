@@ -40,8 +40,10 @@ The program must also meet the following requirements.
 ## Required Software
 
     * Python 3.8.0
+    * random-word package (pip install random-word)
+    * YAML parser and emitter for Python (pip install pyyaml)
 
-### **Aurthors**
+### **Authors**
 
 Samuel Beltran (samuelbeltran@byui.edu)
 Vadym Chemariev (che21025@byui.edu)
